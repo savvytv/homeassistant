@@ -1,0 +1,227 @@
+
+
+- alias: Set Heating (<23)
+  hide_entity: false
+  trigger:
+  - platform: numeric_state
+    entity_id: climate.heating
+    value_template: '{{ state.attributes.current_temperature }}'
+    above: 23
+  condition: []
+  action:
+  - service: climate.set_temperature
+    data:
+      entity_id: climate.heating
+      temperature: 22
+
+
+- alias: Kitchen leds on automatically
+#  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+#  - at: '18:30:00'
+#    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.kitchen_leds
+    service: switch.turn_on
+
+- alias: Kitchen leds off automatically
+#  initial_state: true
+  trigger:
+    platform: sun
+    event: sunrise
+#  - at: '06:00:00'
+#    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.kitchen_leds
+    service: switch.turn_off
+
+- alias: Alexa TTS
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_select.alexa
+  action:
+    - service: media_player.alexa_tts
+      data_template:
+        entity_id: >
+         {% if is_state('input_select.alexa', 'Lounge') %}
+             media_player.lounge
+          {% elif is_state('input_select.alexa', 'Kitchen') %}
+            media_player.kitchen
+          {% elif is_state('input_select.alexa', 'Office') %}
+            media_player.office
+          {% elif is_state('input_select.alexa', 'None') %}
+            false
+          {% endif %}
+        message: "{{  states.input_text.alexa_tts.state }}"
+    - delay: '00:00:02'
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.alexa
+        option: None
+
+
+### Alarm ###
+- alias: Trigger alarm while armed away
+  initial_state: true
+  trigger:
+  - entity_id: binary_sensor.back_door
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.front_door
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.garage_door
+    platform: state
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: alarm_control_panel.alarm
+    state: armed_away
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.alarm
+
+- alias: Trigger alarm while armed home
+  initial_state: true
+  trigger:
+  - entity_id: binary_sensor.back_door
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.front_door
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.garage_door
+    platform: state
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: alarm_control_panel.alarm
+    state: armed_home
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.alarm
+
+
+
+- alias: Alarm triggered
+  initial_state: true
+  trigger:
+    - platform: state
+      from: 'armed_away'
+      entity_id: alarm_control_panel.alarm
+      to: 'pending'
+    - platform: state
+      from: 'armed_home'
+      entity_id: alarm_control_panel.alarm
+      to: 'pending'
+  action:
+  - service: media_player.sonos_snapshot
+    entity_id: media_player.bathroom
+  - data:
+      volume_level: 0.75
+    entity_id: media_player.bathroom
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.bathroom
+      message: Please enter the alarm code within 60 seconds
+#      language: uk
+    service: tts.google_say
+  - service: media_player.alexa_tts
+    data_template:
+      entity_id: media_player.office, media_player.kitchen
+      message: "Please enter the alarm code within 60 seconds"
+  - delay:
+      seconds: 10
+  - service: media_player.sonos_restore
+    entity_id: media_player.bathroom
+
+- alias: Sound the alarms
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.alarm
+      to: 'triggered'
+  action:
+  - data:
+      message: Intruder Alert!!
+    service: notify.ios_craigs_iphone7s
+  - data:
+      volume_level: 0.99
+    entity_id: media_player.bathroom
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.bathroom
+      media_content_id:  http://192.168.0.68:8123/local/audio/Retro-Alarm.mp3
+      media_content_type: music
+    service: media_player.play_media
+  - service: media_player.alexa_tts
+    data_template:
+      entity_id: media_player.office, media_player.kitchen
+      message: "Intruder Alert!!, Intruder Alert!!,Intruder Alert!!,Intruder Alert!!,Intruder Alert!!,Intruder Alert!!"
+
+
+- alias: Alarm arming
+  initial_state: true
+  trigger:
+  - entity_id: alarm_control_panel.alarm
+    from: 'disarmed'
+    platform: state
+    to: 'pending'
+  condition: []
+  action:
+#  - service: media_player.sonos_snapshot
+#    entity_id: media_player.bathroom
+#  - data:
+#      volume_level: 0.75
+#    entity_id: media_player.bathroom
+#    service: media_player.volume_set
+#  - service: media_player.sonos_restore
+#    entity_id: media_player.bathroom
+  - service: media_player.alexa_tts
+    data:
+      entity_id: media_player.office
+      message: "Arming Alarm"
+
+
+- alias: Alarm armed
+  hide_entity: true
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.alarm
+      to: 'armed_away'
+  action:
+  - data:
+      entity_id: script.exit
+    service: script.turn_on
+
+- alias: Alarm disarmed
+  initial_state: true
+  trigger:
+  - entity_id: alarm_control_panel.alarm
+    platform: state
+    to: 'disarmed'
+  condition: []
+  action:
+  - data:
+      entity_id: media_player.bathroom
+    service: media_player.media_pause
+#  - data:
+#      entity_id: switch.garage_door_lock
+#    service: switch.turn_off
+  - data:
+      entity_id: media_player.bathroom
+      message: The Alarm is now       OFF
+    service: tts.google_say
+  - service: media_player.alexa_tts
+    data:
+      entity_id: media_player.office, media_player.kitchen
+      message: "The Alarm is now      OFF"

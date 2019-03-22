@@ -1,0 +1,152 @@
+homeassistant:
+  name: !secret name
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 17
+  unit_system: metric
+  time_zone: Europe/London
+  customize: !include customize.yaml
+
+frontend:
+  themes: !include themes.yaml
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+wake_on_lan:
+config:
+updater:
+discovery:
+conversation:
+history:
+logbook:
+map:
+sun:
+ios:
+system_health:
+http:
+  api_password: !secret http_password
+  base_url: !secret duckdns_url
+
+tts:
+  - platform: google
+
+cloud:
+  alexa:
+    filter:
+      include_entities:
+      - switch.kitchen_leds
+      - switch.Livingroom_Lamp
+
+homekit:
+  filter:
+    include_entities:
+      - switch.Test1
+      - switch.Livingroom_Lamp
+
+alexa_media:
+  accounts:
+    - email: alexaemail@email.com
+      password: !secret amazon_password
+      url: amazon.co.uk
+
+hive:
+  username: !secret hive_username
+  password: !secret hive_password
+
+zone:
+  - name: !secret name_office
+    latitude: !secret latitude_office
+    longitude: !secret longitude_office
+    radius: 100
+    icon: mdi:office-building
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 60
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+  server_id: 5938 #this is cardiff UK based server id
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+
+panel_iframe:
+  configurator:
+    title: 'Configurator'
+    url: !secret configurator_url
+    icon: mdi:wrench
+
+switch:
+  - platform: mqtt
+    name: "Livingroom Lamp"
+    command_topic: "cmnd/livingroomlamp/power"
+    state_topic: "stat/livingroomlamp/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    icon: mdi:lightbulb
+
+
+binary_sensor:
+  - platform: mqtt
+    name: "Front Door"
+    state_topic: "home/rf/recieve"
+    payload_on: "fd1"
+    payload_off: "fd0"
+    device_class: door
+    qos: 1
+  - platform: mqtt
+    name: "Door Bell"
+    state_topic: "home/rf/recieve"
+    payload_on: "doorbell"
+    payload_off: "nodoorbell"
+    device_class: sound
+    qos: 1
+
+input_select:
+  alexa:
+    name: Alexa Devices
+    options:
+      - Kitchen
+      - Lounge
+      - Office
+      - None
+    icon: mdi:amazon-alexa
+    initial: None
+
+input_text:
+  alexa_tts:
+    name: Alexa, Say...
+#    initial: Hi
+    icon: mdi:amazon-alexa
+
+input_boolean:
+  hdmi1:
+    name: HDMI 1
+  hdmi2:
+    name: HDMI 2
+  hdmi3:
+    name: HDMI 3
+
+alarm_control_panel:
+  - platform: manual
+    name: Alarm
+    code: !secret alarm_code
+    trigger_time: 300
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      delay_time: 6
+      pending_time: 6
+    armed_away:
+      delay_time: 6
+      pending_time: 6
+    triggered:
+      pending_time: 0
+    armed_night:
+      delay_time: 6
+      pending_time: 6
