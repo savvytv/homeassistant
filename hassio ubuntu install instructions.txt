@@ -1,12 +1,20 @@
 
 
-
 ### How to install hassio on ubuntu.
 
-First install ubuntu. go through setup procedure. enable open ssh server.
+use program like etcher to mount the image onto a usb stick.
+put the stick in your computer you want to use as hassio server and boot from usb.
+
+Install ubuntu. Go through setup procedure.
+following steps configuring your keyboard and so on. 
+When prompted about user and password, make sure you remember these as these will be needed to use the ubuntu side later on. 
+In the section about what packages to install, enable open ssh server when prompted on the setup. this way you will be able to ssh into the computer from another device.
 
 when its up and running,
-type: curl sL https://goo.gl/1bcBsW | bash -
+Run this command. type: 
+curl sL https://goo.gl/1bcBsW | bash -
+
+Once the script has ran you should have hassio installed and be able to start setting up hass.
 
 stop laptop shutting down after lid close:
 sudo nano /etc/systemd/logind.conf
@@ -17,5 +25,5 @@ Then run this command:
 sudo systemctl restart systemd-logind
 
 
-if open ssh is not enabled. do so by typing:
+if open ssh is not installed and enables from install. do so by typing:
 sudo apt-get install openssh-server
