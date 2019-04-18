@@ -225,3 +225,20 @@
     data:
       entity_id: media_player.office, media_player.kitchen
       message: "The Alarm is now      OFF"
+
+
+- alias: Alexa TV HDMI1
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.hdmi1
+    to: 'on'
+  action:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.lounge_tv
+        source: HDMI1
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.hdmi1

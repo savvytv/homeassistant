@@ -24,4 +24,12 @@ intruder_alert:
     - service: media_player.alexa_tts
       data:
         entity_id: media_player.kitchen
-        message: "Intruder Alert! " 
+        message: "Intruder Alert! "
+
+
+alexa_tv_hdmi1:
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.lounge_tv
+        source: HDMI1
