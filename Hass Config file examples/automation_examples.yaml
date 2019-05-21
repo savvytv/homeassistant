@@ -1,7 +1,49 @@
 
 
+
+### Car Presence, this will open the garage door when the d1mini connects to the wifi
+- alias: Car Presence Auto Open
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.carpresenceshell
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.carpresencewayne
+      to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.garage_door
+    state: 'off'
+  action:
+  - service: cover.open_cover
+    entity_id: cover.garage_door
+
+
+### This will then close the garage door once the car has been turned off and cut power to the d1mini, causing it to grop off the wifi
+- alias: Car Presence Auto Close 1
+  trigger:
+    platform: state
+    entity_id: binary_sensor.carpresenceshell
+    to: 'off'
+#    for:
+#      minutes: 2
+#      seconds: 5
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.garage_door
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.carpresencewayne
+        state: 'off'
+  action:
+  - service: cover.close_cover
+    entity_id: cover.garage_door
+
+
+### This will change the climate entity to a specific temp when the current temp goes over 23 (in this case)
 - alias: Set Heating (<23)
-  hide_entity: false
   trigger:
   - platform: numeric_state
     entity_id: climate.heating
@@ -15,34 +57,35 @@
       temperature: 22
 
 
+### Turn on an entity at a specific time
 - alias: Kitchen leds on automatically
-#  initial_state: true
   trigger:
-    platform: sun
-    event: sunset
-#  - at: '18:30:00'
-#    platform: time
+  - at: '18:30:00'
+    platform: time
   condition: []
   action:
   - data:
       entity_id: switch.kitchen_leds
     service: switch.turn_on
 
+
+# turn off an entity at a sun event
 - alias: Kitchen leds off automatically
-#  initial_state: true
   trigger:
-    platform: sun
-    event: sunrise
-#  - at: '06:00:00'
-#    platform: time
+    # platform: sun
+    # event: sunrise
+    platform: state
+    entity: sun.sun
+    state: 'above_horizen'
   condition: []
   action:
   - data:
       entity_id: switch.kitchen_leds
     service: switch.turn_off
 
+
+### This automation will have alexa say whats in the input_text and say it from the selected input_select
 - alias: Alexa TTS
-  hide_entity: true
   initial_state: true
   trigger:
     platform: state
@@ -68,7 +111,86 @@
         option: None
 
 
-### Alarm ###
+### This changes the source in a selected media_playe to one option using an input_boolean then turns the input_boolean off again.
+- alias: Alexa TV HDMI1
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.hdmi1
+    to: 'on'
+  action:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.lounge_tv
+        source: HDMI1
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.hdmi1
+
+
+### This will notify the ios device when the garage is closed and cend a live feed to the phone too.
+### See ios section of the config file for the camera part (This is needed)
+- alias: notify that the garage is closed
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.garage_door
+    to: 'off'
+  action:
+    - service: notify.ios_iphone
+      data:
+        title: FYI
+        message: The garage door is now closed
+        data:
+          attachment:
+            content-type: jpeg
+          push:
+            category: camera
+          entity_id: camera.garage
+
+
+### This changes the binary sensor to the payload below 5 seconds after the sensor changes to on (in this case)
+- alias: hall pir sensor off
+  hide_entity: true
+  initial_state: true
+  trigger:
+  - entity_id: binary_sensor.hall_pir
+    platform: state
+    to: 'on'
+  action:
+  - delay:
+      seconds: 5
+  - service: mqtt.publish
+    data:
+      topic: "home/bridge/recieve"
+      payload: 'hallpiroff'
+
+
+### This will send a broadlink ir command when a service is called (in this case turning the bedroom tv on)
+- alias: turn on bedroom tv magic
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: call_service
+      event_data:
+        service_data:
+          entity_id: media_player.bedroom_tv
+        domain: media_player
+        service: turn_on
+  condition: []
+  action:
+    - service: broadlink.send
+      data:
+        host: 192.168.18.191
+        packet:
+          - "JgBYAAABKJMTEhMSEjgSEhMSExITEhMSEjcTNxMSEzcSNxM3EjgSNxMSExITEhI4EhITEhMSExITNxI3EzcSExI3EzcTNxI4EgAFKAABKUgTAAxYAAEpSRIADQU="
+
+
+
+
+### Alarm setup example 
 - alias: Trigger alarm while armed away
   initial_state: true
   trigger:
@@ -108,8 +230,6 @@
   action:
     service: alarm_control_panel.alarm_trigger
     entity_id: alarm_control_panel.alarm
-
-
 
 - alias: Alarm triggered
   initial_state: true
@@ -167,7 +287,6 @@
       entity_id: media_player.office, media_player.kitchen
       message: "Intruder Alert!!, Intruder Alert!!,Intruder Alert!!,Intruder Alert!!,Intruder Alert!!,Intruder Alert!!"
 
-
 - alias: Alarm arming
   initial_state: true
   trigger:
@@ -189,7 +308,6 @@
     data:
       entity_id: media_player.office
       message: "Arming Alarm"
-
 
 - alias: Alarm armed
   hide_entity: true
@@ -225,20 +343,3 @@
     data:
       entity_id: media_player.office, media_player.kitchen
       message: "The Alarm is now      OFF"
-
-
-- alias: Alexa TV HDMI1
-  hide_entity: true
-  initial_state: true
-  trigger:
-    platform: state
-    entity_id: input_boolean.hdmi1
-    to: 'on'
-  action:
-    - service: media_player.select_source
-      data:
-        entity_id: media_player.lounge_tv
-        source: HDMI1
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.hdmi1
