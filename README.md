@@ -1,4 +1,5 @@
 # Homeassistant info, examples and tips
+
 This is my repository for reminding me how i did things regarding Homeassistant.
 If anyone is reading this i may have some things wrong, or not the conventional way of doing it but they worked for me.
 I hope anyone who finds this repo makes use out of it.
@@ -15,11 +16,18 @@ I am trying to keep it up to date as much as possible and adding any new feature
 
 ## Homeassistant lovelace card examples
 [2 Horizontal Rows Of Vertical Buttons](lovelace_card_examples/2_horizontal_rows_of_vertical_buttons.yaml)
+[3 Gauges In A Horizontal Stack](lovelace_card_examples/3_gauges_in_a_horizontal_stack.yaml)
+[Camera Card With Entities](lovelace_card_examples/camera_card_with_entities.yaml)
+[Entity Card With Custom Seporator](lovelace_card_examples/entity_card_with_custom_seporator.yaml)
+[Mini Media Player](lovelace_card_examples/mini_media_player.yaml)
+[Round Pop Out Card](lovelace_card_examples/round_pop_out_card.yaml)
+[Sonarr Upcoming Media](lovelace_card_examples/sonarr_upcoming_media.yaml)
+[Timer Card](lovelace_card_examples/timer_card.yaml)
 
 ## Tasmota Tips and rules
 [Click Here](tasmota_info_and_help.md) For tasmota help
 
-## Port forwarding in router I have used
+## Port forwarding in routers I have used
 [Click Here](port_forwarding_in_routers/) For port forwarding examples
 
 
