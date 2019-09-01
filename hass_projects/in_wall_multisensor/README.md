@@ -32,11 +32,11 @@ If you use the same GPIO pins i used you can follow the software instructions bu
 * Ground - GND
 * SCL - D4
 * SDA - D3
-* PIR Data Pin - D1
+* PIR Data Pin - D1  
 ![](images/4.jpeg)
 
 ### Step 5
-Solder cables onto the 5V pin and add another to the ground pin for the power supply
+Solder cables onto the 5V pin and add another to the ground pin for the power supply  
 ![](images/5.jpeg)
 
 ### Thats it for the hardware!
