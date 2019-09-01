@@ -30,12 +30,11 @@ I am trying to keep it up to date as much as possible and adding any new feature
 [Click Here](port_forwarding_in_routers/) For port forwarding help
 
 
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+![](images/hass_icon_small.png)
 
 ## Acknowledgments
+I would like to thank the following people for providing help and tips regarding Homeassistant
+Everything i know and learned was from these guys and many more
 
-* Hat tip to anyone whose code was used
 * Inspiration
 * etc
