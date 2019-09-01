@@ -94,3 +94,6 @@ binary_sensor:
     name: "Multisensor PIR"
     device_class: motion
 ```
+Restart homeassistant and add the new entities into your lovelace interface
+
+Thats it! Have fun trying it for yourself.
