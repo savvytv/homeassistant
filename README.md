@@ -33,7 +33,7 @@ I am trying to keep it up to date as much as possible and adding any new feature
 [Click Here](port_forwarding_in_routers/) For port forwarding examples
 
 ## Projects I have been Working on
-Including step by step instruction how i accomplished the end result.
+Including step by step instruction how i accomplished the end result.  
 [In Wall Multisensor](hass_projects/in_wall_multisensor/README.md)
 
 

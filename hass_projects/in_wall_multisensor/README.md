@@ -5,4 +5,4 @@
 
 ## Step 1
 Soldar small cables onto the sensors
-![](hass_projects/in_wall_multisensor/images/1.png)
+![](hass_projects/in_wall_multisensor/images/1.jpeg)
