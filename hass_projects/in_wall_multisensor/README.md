@@ -59,7 +59,7 @@ Remeber the topic has to be unique for every MQTT device.
 ![](images/7.png)
 
 ### Setting up rules etc.
-Go into the console and type:  
+Go into the tasmota console and type:  
 `Switchmode1 1` This will make the pir state 1 and 0 instead of on and off.  
 
 Next
