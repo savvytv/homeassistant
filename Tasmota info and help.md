@@ -1,8 +1,6 @@
 # Useful Tasmota information!
 
-## Rules and commands:
-
-button and switch retain command:
+## button and switch retain command:
 ```
 Backlog SwitchRetain off; ButtonRetain on; ButtonRetain off; PowerRetain on
 ```
@@ -29,8 +27,8 @@ In tazmota, set timer 1 and save
 
 ## Add pir sensor to switch2
 
-`rule1 on switch2#state do publish2 livingroom/pir %value% endon`
-`switchmode2 1` This is so the pir sends a 1 or 0 as the mqtt payload.
+* `rule1 on switch2#state do publish2 livingroom/pir %value% endon`
+* `switchmode2 1` This is so the pir sends a 1 or 0 as the mqtt payload.
 
 
 
@@ -44,15 +42,15 @@ CurrentSet 250
 
 
 ## Remember to switch on rules:
-`rule1 1` (switches on rule 1)
-`rule1 0` (switches off rule 1)
+* `rule1 1` (switches on rule 1)
+* `rule1 0` (switches off rule 1)
 
 
 ## Tasmota templates website with a list of many devices:
 * [Click Here](https://blakadder.github.io/templates/) - There are many templates to look at
 
 Shelly 2.5 template.
-`{"NAME":"Shelly 2.5","GPIO":[56,255,17,255,21,83,0,0,6,82,5,22,156],"FLAG":2,"BASE":18}`
+* `{"NAME":"Shelly 2.5","GPIO":[56,255,17,255,21,83,0,0,6,82,5,22,156],"FLAG":2,"BASE":18}`
 
 
 
