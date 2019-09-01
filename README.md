@@ -7,19 +7,18 @@ I am trying to keep it up to date as much as possible and adding any new feature
 
 ## Installing HASSIO on Ubuntu
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+[Click Here](hassio_ubuntu_install_instructions.md) For installing hassio help
 
 ## Homeassistant config file examples
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+[Config Examples](config.yaml)
+[Automation Examples](automation.yaml)
+[Script Examples](script.yaml)
+[Theme Examples](themes.yaml)
 
 ## Homeassistant lovelace card examples
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+[2 Horizontal Rows Of Vertical Buttons](2_horizontal_rows_of_vertical_buttons.yaml)
 
 ## Tasmota Tips and rules
 
@@ -36,5 +35,5 @@ I am trying to keep it up to date as much as possible and adding any new feature
 I would like to thank the following people for providing help and tips regarding Homeassistant
 Everything i know and learned was from these guys and many more
 
-* Inspiration
-* etc
+* [Homeassistant](https://www.home-assistant.io/) Here is a link the Homeassistant website
+* [Franck Nijhof](https://github.com/frenck) Here is a link to his Github page
