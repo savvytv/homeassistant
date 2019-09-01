@@ -11,14 +11,14 @@ I am trying to keep it up to date as much as possible and adding any new feature
 
 ## Homeassistant config file examples
 
-[Config Examples](config.yaml)
-[Automation Examples](automation.yaml)
-[Script Examples](script.yaml)
-[Theme Examples](themes.yaml)
+[Config Examples](hass_config_file_examples/config.yaml)  
+[Automation Examples](hass_config_file_examples/automation.yaml)  
+[Script Examples](hass_config_file_examples/script.yaml)  
+[Theme Examples](hass_config_file_examples/themes.yaml)  
 
 ## Homeassistant lovelace card examples
 
-[2 Horizontal Rows Of Vertical Buttons](2_horizontal_rows_of_vertical_buttons.yaml)
+[2 Horizontal Rows Of Vertical Buttons](lovelace_card_examples/2_horizontal_rows_of_vertical_buttons.yaml)
 
 ## Tasmota Tips and rules
 
