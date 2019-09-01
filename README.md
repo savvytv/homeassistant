@@ -15,14 +15,14 @@ I am trying to keep it up to date as much as possible and adding any new feature
 [Theme Examples](hass_config_file_examples/themes.yaml)  
 
 ## Homeassistant lovelace card examples
-[2 Horizontal Rows Of Vertical Buttons](lovelace_card_examples/2_horizontal_rows_of_vertical_buttons.yaml)
-[3 Gauges In A Horizontal Stack](lovelace_card_examples/3_gauges_in_a_horizontal_stack.yaml)
-[Camera Card With Entities](lovelace_card_examples/camera_card_with_entities.yaml)
-[Entity Card With Custom Seporator](lovelace_card_examples/entity_card_with_custom_seporator.yaml)
-[Mini Media Player](lovelace_card_examples/mini_media_player.yaml)
-[Round Pop Out Card](lovelace_card_examples/round_pop_out_card.yaml)
-[Sonarr Upcoming Media](lovelace_card_examples/sonarr_upcoming_media.yaml)
-[Timer Card](lovelace_card_examples/timer_card.yaml)
+[2 Horizontal Rows Of Vertical Buttons](lovelace_card_examples/2_horizontal_rows_of_vertical_buttons.yaml)  
+[3 Gauges In A Horizontal Stack](lovelace_card_examples/3_gauges_in_a_horizontal_stack.yaml)  
+[Camera Card With Entities](lovelace_card_examples/camera_card_with_entities.yaml)  
+[Entity Card With Custom Seporator](lovelace_card_examples/entity_card_with_custom_seporator.yaml)  
+[Mini Media Player](lovelace_card_examples/mini_media_player.yaml)  
+[Round Pop Out Card](lovelace_card_examples/round_pop_out_card.yaml)  
+[Sonarr Upcoming Media](lovelace_card_examples/sonarr_upcoming_media.yaml)  
+[Timer Card](lovelace_card_examples/timer_card.yaml)  
 
 ## Tasmota Tips and rules
 [Click Here](tasmota_info_and_help.md) For tasmota help
