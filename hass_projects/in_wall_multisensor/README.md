@@ -32,7 +32,8 @@ If you use the same GPIO pins i used you can follow the software instructions bu
 * Ground - GND
 * SCL - D4
 * SDA - D3
-* PIR Data Pin - D1  
+* PIR Data Pin - D1
+
 ![](images/4.jpeg)
 
 ### Step 5
