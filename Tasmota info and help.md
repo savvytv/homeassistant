@@ -25,7 +25,7 @@ In tazmota, set timer 1 and save
 `rule1 on Clock#Timer=1 do Restart 1 endon`
 `
 
-## Add pir sensor to switch2
+## Add PIR sensor to switch2
 
 * `rule1 on switch2#state do publish2 livingroom/pir %value% endon`
 * `switchmode2 1` This is so the pir sends a 1 or 0 as the mqtt payload.
