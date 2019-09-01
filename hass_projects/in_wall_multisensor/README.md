@@ -43,8 +43,6 @@ Everything i know and learned was from these guys and many more.
 * [The Hookup](http://www.thesmarthomehookup.com/) Here is a link to Robs website
 * [Digiblur](https://www.digiblur.com/) Here is a link to Travis website
 * [Hasscasts](https://www.youtube.com/channel/UCGOCeqMJnLvr-5C-ypUw7IQ/featured) Here is a link to his youtube channel
-* [BurnsHa](https://www.youtube.com/channel/UCSKQutOXuNLvFetrKuwudpg) Here is a link to his youtube channel  
-
-When purchasing components and sensors, considder [Banggood](https://www.banggood.com/index.php?zf=24584579) They have great prices and quick shipping times.
+* [BurnsHa](https://www.youtube.com/channel/UCSKQutOXuNLvFetrKuwudpg) Here is a link to his youtube channel
 
 ![](images/hass_icon_small.png)
