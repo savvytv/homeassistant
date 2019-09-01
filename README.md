@@ -23,11 +23,11 @@ I am trying to keep it up to date as much as possible and adding any new feature
 
 ## Tasmota Tips and rules
 
-[Click Here](tasmota_info_and_help.md) For help
+[Click Here](tasmota_info_and_help.md) For tasmota help
 
 ## Port forwarding in router i have used
 
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+[Click Here](port_forwarding_in_routers/) For port forwarding help
 
 
 ## Authors
