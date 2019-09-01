@@ -46,11 +46,11 @@ D3 - I2C SDA
 D4 - I2C SCL  
 Da - Switch1  
 Click Save at the bottom.
-![](images/6.jpeg)
+![](images/6.png)
 
 Set up MQTT with your username, password, server and topic.  
 Remeber the topic has to be unique for every MQTT device.
-![](images/7.jpeg)
+![](images/7.png)
 
 ### Setting up rules etc.
 Go into the console and type:  
