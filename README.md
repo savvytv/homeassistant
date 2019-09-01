@@ -23,7 +23,7 @@ I am trying to keep it up to date as much as possible and adding any new feature
 
 ## Tasmota Tips and rules
 
-[Click Here](Tasmota info and help.md) For help
+[Click Here](tasmota_info_and_help.md) For help
 
 ## Port forwarding in router i have used
 
