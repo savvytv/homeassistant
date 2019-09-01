@@ -1,7 +1,9 @@
 # Homeassistant info, examples and tips
 
-This is my repository for reminding me how i did things regarding Homeassistant.
-If anyone is reading this i may have some things wrong, or not the conventional way of doing it but they worked for me.
+This is my repository for reminding me how i did things regarding Homeassistant.  
+If anyone is reading this, i may have not done things the conventional way, but... they worked for me.  
+I am not a computer programmer in any way. Just a smart home enthusiast.  
+
 I hope anyone who finds this repo makes use out of it.
 I am trying to keep it up to date as much as possible and adding any new features or tips i come across.
 
