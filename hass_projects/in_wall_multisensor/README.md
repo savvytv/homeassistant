@@ -44,12 +44,12 @@ Change the module type to 'Generic (18)'
 Then set the pins as follows:  
 D3 - I2C SDA  
 D4 - I2C SCL  
-Da - Switch1  
-Click Save at the bottom.
+D1 - Switch1  
+Click Save at the bottom.  
 ![](images/6.png)
 
 Set up MQTT with your username, password, server and topic.  
-Remeber the topic has to be unique for every MQTT device.
+Remeber the topic has to be unique for every MQTT device.  
 ![](images/7.png)
 
 ### Setting up rules etc.
@@ -61,6 +61,7 @@ Next
 `Rule1 on switch1#state do publish multisensor/pir %value% endon`  
 Switch on the rule by typing  
 `Rule1 1`  
+
 You will need to change 'multisensor' in the rule to something unique for every sensor you make
 
 ## Homeassistant
