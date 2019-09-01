@@ -45,6 +45,6 @@ Everything i know and learned was from these guys and many more.
 * [Hasscasts](https://www.youtube.com/channel/UCGOCeqMJnLvr-5C-ypUw7IQ/featured) Here is a link to his youtube channel
 * [BurnsHa](https://www.youtube.com/channel/UCSKQutOXuNLvFetrKuwudpg) Here is a link to his youtube channel  
 
-When purchasing components and sensors, considder [Banggood](https://www.banggood.com/index.php?zf=24584579) They have great prices and quick shipping times.
+When purchasing components and sensors, consider [Banggood](https://www.banggood.com/index.php?zf=24584579) They have great prices and quick shipping times.
 
 ![](images/hass_icon_small.png)
