@@ -9,8 +9,7 @@
 * When prompted about user and password, make sure you remember these as these will be needed to use the ubuntu side later on.
 * In the section about what packages to install, enable open ssh server when prompted on the setup. this way you will be able to ssh into the computer from another device.
 
-If using freenass and you are using ubuntu as a vm you may have problems with
-Ubuntu booting. If so try this:
+* If using freenass and you are using ubuntu as a vm you may have problems with ubuntu booting. If so try this:
 ```
     When on UEFI Interactive Shell; type: exit
     In the EFI menu system navigate to "Boot Maintenance Manager"
@@ -26,8 +25,8 @@ Ubuntu booting. If so try this:
 ## when ubuntu is up and running
 
 ### update packages by typing:
-`sudo apt-get update` (this can take a while as it updates all of the packages)
-then:
+`sudo apt-get update` (this can take a while as it updates all of the packages)  
+then:  
 `sudo apt-get upgrade`
 
 ### To install hassio, Run this command. type:
@@ -41,7 +40,7 @@ Once the script has ran you should have hassio installed and be able to start se
 
 ### change ip to static:
 `sudo nano /etc/network/interfaces`
-Below is what mine looks like. you will need to make changes to suit your interface name and network range.
+Below is what mine looks like. You will need to make changes to suit your interface name and network range.
 ```
 #####################################################################
 # This file describes the network interfaces available on your system
@@ -63,8 +62,8 @@ iface enp0s3 inet static
 
 ######################################################################
 ```
-Then type:
-`sudo reboot`
+Then type:  
+`sudo reboot`  
 This will reboot your server and apply the new changes
 
 
