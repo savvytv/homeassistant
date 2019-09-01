@@ -9,12 +9,12 @@ Backlog SwitchRetain off; ButtonRetain on; ButtonRetain off; PowerRetain on
 
 
 using touch momentary switches:
-```
-ledpower 0 = that turns off the green led on the board because you can see it through the cracks
+
+`ledpower 0` that turns off the green led on the board because you can see it through the cracks
 switchmode 3 = this turns the button into a momentary switch
 switchmode3 0 = this makes momentary switchmode a toggle switch not on/off so it toggles the state
 no matter what home assistant is set to
-```
+
 
 
 Sonoff RF Rule:
