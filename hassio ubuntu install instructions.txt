@@ -10,6 +10,17 @@ following steps configuring your keyboard and so on.
 When prompted about user and password, make sure you remember these as these will be needed to use the ubuntu side later on. 
 In the section about what packages to install, enable open ssh server when prompted on the setup. this way you will be able to ssh into the computer from another device.
 
+If using freenass and you are using ubuntu as a vm you may have problemas with 
+Ubuntu booting. If so try this:
+
+    When on UEFI Interactive Shell; type: exit
+    In the EFI menu system navigate to "Boot Maintenance Manager"
+    Select "Boot from file"
+    Locate and select your grubx64.efi file
+    When in terminal:
+    $ sudo mkdir /boot/efi/EFI/BOOT
+    $ sudo cp /boot/efi/EFI/ubuntu/grubx64.efi /boot/efi/EFI/BOOT/bootx64.efi
+    $ reboot
 
 
 
@@ -23,11 +34,10 @@ sudo apt-get upgrade
 
 To install hassio, Run this command. type: 
 curl sL https://goo.gl/1bcBsW | bash -
+or
+curl sL https://raw.githubusercontent.com/savvytv/Repo/master/HASSIO/install.sh | bash -
 
 Once the script has ran you should have hassio installed and be able to start setting up hass.
-
-
-
 
 
 change ip to static:

@@ -1,19 +1,20 @@
+# Useful Tasmota information!
 
-Useful Tasmota information!
-
-Rules and commands:
+## Rules and commands:
 
 button and switch retain command:
+```
 Backlog SwitchRetain off; ButtonRetain on; ButtonRetain off; PowerRetain on
-
+```
 
 
 using touch momentary switches:
+```
 ledpower 0 = that turns off the green led on the board because you can see it through the cracks
 switchmode 3 = this turns the button into a momentary switch
 switchmode3 0 = this makes momentary switchmode a toggle switch not on/off so it toggles the state
 no matter what home assistant is set to
-
+```
 
 
 Sonoff RF Rule:
@@ -57,5 +58,3 @@ Shelly 2.5 template. Use latest development version of tasiota for power monitor
 
 Set a rule to switch off relay after 1 second
 Rule1 on power1#state=1 do backlog delay 10 ; power1 0 endon
-
-
