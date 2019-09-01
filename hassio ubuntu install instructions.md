@@ -1,6 +1,6 @@
 
 
-#How to install hassio on ubuntu server 16.04.
+# How to install hassio on ubuntu server 16.04.
 
 * use program like etcher to mount the iso onto a usb stick.
 * put the stick in your computer you want to use as hassio server and boot from usb.
