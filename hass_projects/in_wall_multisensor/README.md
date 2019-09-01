@@ -1,19 +1,20 @@
 # Homeassistant In Wall Multisensor
 
 ## Purchase all the sensors and components needed
-[D1 Mini](https://banggood.app.link/DMaosBzjDZ)
-[BH1750FVI Digital Light Intensity Sensor](https://banggood.app.link/8EDHRH6iDZ)
-[Mini IR Infrared Pyroelectric PIR](https://banggood.app.link/Tg1R2iFjDZ)
-[HTU21D Temperature Humidity Sensor](https://banggood.app.link/6JE5LxJjDZ)
-[5V AC-DC Power Supply](https://banggood.app.link/yqQWaiOjDZ)
-[Jumper Cable Dupont Wires](https://banggood.app.link/BBVZeTXjDZ)
+[D1 Mini](https://banggood.app.link/DMaosBzjDZ)  
+[BH1750FVI Digital Light Intensity Sensor](https://banggood.app.link/8EDHRH6iDZ)  
+[Mini IR Infrared Pyroelectric PIR](https://banggood.app.link/Tg1R2iFjDZ)  
+[HTU21D Temperature Humidity Sensor](https://banggood.app.link/6JE5LxJjDZ)  
+[5V AC-DC Power Supply](https://banggood.app.link/yqQWaiOjDZ)  
+[Jumper Cable Dupont Wires](https://banggood.app.link/BBVZeTXjDZ)  
 
 ## Hardware
 ### Step 1
 solder small dupont cables onto the sensors and strip the ends.    
 solder onto the 3.3v, Ground, SDA and SCL. I used the same color cables for each pin.  
 The PIR Sensor uses push on cables, just strip the ends.  
-![](images/1.jpeg)
+![](images/1.jpeg)  
+*In this image the temp sensor is the GY-SHT30-D SHT30 3.3V Digital Temperature and Humidity Sensor Module. The software setup uses the HTU21D Temperature Humidity Sensor. I have used both. Both work perfectly.*
 
 ### Step 2
 Flash The D1 Mini With the latest version of tasmota.  
@@ -23,7 +24,6 @@ Flash The D1 Mini With the latest version of tasmota.
 Once Flashed and you have the dupont cables soldered, You need to glue the sensors in place.  
 I used 5mm holes for the lux and temp sensors and 10.5mm for the mini PIR
 ![](images/2.jpeg)
-*In this image the temp sensor is the GY-SHT30-D SHT30 3.3V Digital Temperature and Humidity Sensor Module. The software setup uses the HTU21D Temperature Humidity Sensor. I have used both. Both work perfectly.*
 
 ### Step 4
 solder the wires to the D1 mini.
