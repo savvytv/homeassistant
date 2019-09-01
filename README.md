@@ -34,7 +34,7 @@ I am trying to keep it up to date as much as possible and adding any new feature
 
 
 ## Acknowledgments
-I would like to thank the following people for providing videos, help and tips regarding Homeassistant.
+I would like to thank the following people for providing videos, help and tips regarding Homeassistant.  
 Everything i know and learned was from these guys and many more.
 
 * [Homeassistant](https://www.home-assistant.io/) Here is a link the Homeassistant website
