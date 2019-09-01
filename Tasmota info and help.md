@@ -9,9 +9,9 @@ Backlog SwitchRetain off; ButtonRetain on; ButtonRetain off; PowerRetain on
 
 
 using touch momentary switches:
-`ledpower 0` This turns off the green led on the board because you can see it through the cracks
-`switchmode 3` This turns the button into a momentary switch
-`switchmode3 0` This makes momentary switchmode a toggle switch not on/off so it toggles the state no matter what home assistant is set to
+* `ledpower 0` This turns off the green led on the board because you can see it through the cracks
+* `switchmode 3` This turns the button into a momentary switch
+* `switchmode3 0` This makes momentary switchmode a toggle switch not on/off so it toggles the state no matter what home assistant is set to
 
 
 
@@ -52,7 +52,7 @@ CurrentSet 250
 * [Click Here](https://blakadder.github.io/templates/) - There are many templates to look at
 
 Shelly 2.5 template.
-``{"NAME":"Shelly 2.5","GPIO":[56,255,17,255,21,83,0,0,6,82,5,22,156],"FLAG":2,"BASE":18}``
+`{"NAME":"Shelly 2.5","GPIO":[56,255,17,255,21,83,0,0,6,82,5,22,156],"FLAG":2,"BASE":18}`
 
 
 
